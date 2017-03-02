@@ -89,15 +89,35 @@ int main(void) {
       //envoi
       char reponse[32] = "Recu !";
       send(csock, reponse, 32, 0);
+      
+      /***                                                          ***
+       * Recevoir la réponse extraire le chemin demandé par le client *
+       * Voir la fonction strtok() pour le découpage                  *   
+       *                                                            **/
+      
+      /***                                                          ***
+       * Ouvrir le fichier en lecture et envoyer le contenu au client *
+       * en envoyant une requete sous ce format :                     *
+       *                                                              *
+       * HTTP/1.x 200 OK                                              *                       
+       * Date: Sat, 28 Nov 2009 04:36:25 GMT                          *
+       * Server: LiteSpeed                                            *
+       * Connection: close                                            *
+       *                                                              *
+       * Le contenu                                                   *
+       ***                                                            **/
+      
+      /** Le header doit être généré correctement et envoyé en début de réponse avant le contenu voir cours delahaye*/
 
-
-      exit(0);
-          /* Fermeture de la socket client et de la socket serveur */
+      
       close(csock);
-      close(sock);
+      
+      exit(0);
     }
 
   }
+  
+  close(sock);
   return EXIT_SUCCESS;
 
 
