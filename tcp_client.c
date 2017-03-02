@@ -72,10 +72,14 @@ int main(void) {
   char buffer[200]="";
   do{
       nbcar = recv(sock, buffer, 200,0);
-      printf("%s\n", buffer);
+      printf("%s\n", buffer); // Stockage dans un fichier pour traitement
   }while(nbcar >0);
   
- 
+  /** Sépération de l'entéte et du contenu (indice : selon la norme une ligne "vide" sépare les deux)
+      et enregistrement dans un fichier */
+  
+  /* Pour finir soit on affiche l'intégralité du fichier soit on execute firefox avec comme argument le nom du fichier
+     (voir commande system() */ 
   
   /* Fermeture de la socket client */
   close(sock);
